@@ -1,0 +1,39 @@
+<div id="review" class="review" itemprop="reviews" itemscope itemtype="http://schema.org/Review">
+  <div>
+    <table class="table table-striped table-bordered">
+      <tbody>
+      <tr>
+        <td style="width: 50%;">
+          <strong>
+            <% if review.show_identifier %>
+                <% if Spree::Reviews::Config[:show_email] && review.user %>
+                    <span itemprop="author"><%= review.user.email %></span>
+                <% else %>
+                    <span itemprop="author"><%= review.name %></span>
+                <% end %>
+            <% else %>
+                <span itemprop="author"><%= Spree.t(:anonymous) %></span>
+            <% end %>
+          </strong>
+        </td>
+        <td class="text-right"><span><%= l review.created_at.to_date %></span><span itemprop="reviewRating" content="<%= review.rating %>"></span></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div itemprop="reviewBody">
+            <%= simple_format(review.review) %>
+          </div>
+          <div class="rating">
+            <span itemprop="reviewRating" content="<%= review.rating %>"></span>
+            <span class="reviews-rating" title="<%= txt_stars(review.rating) %>">
+              <%= render 'spree/reviews/stars', stars: review.rating %>
+            </span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-right"></div>
+</div>
+

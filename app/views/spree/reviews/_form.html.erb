@@ -1,0 +1,51 @@
+
+
+<%= form_for review, url: product_reviews_path(product), html: { method: :post, class: 'form-horizontal' } do |f| %>
+    <h2><%= Spree.t(:write_your_own_review) %></h2>
+    <%= render 'spree/shared/error_messages', target: review %>
+
+    <div class="form-group required">
+      <div class="col-sm-12">
+        <%= f.label :name, class: 'control-label' %>
+        <%= f.text_field :name,  size: 50, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group required">
+      <div class="col-sm-12">
+        <%= f.label :review, class: 'control-label' %>
+        <%= f.text_area :review, wrap: 'virtual', rows: 10, cols: 50, class: 'form-control' %>
+        <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+    </div>
+
+    <div class="form-group required">
+      <div class="col-sm-12">
+        <%= f.label :rating, class: 'control-label' %>
+        <%= render 'spree/reviews/stars', stars: review.rating, edit_enabled: true %>
+      </div>
+    </div>
+
+
+
+    <% if Spree::Reviews::Config[:show_identifier] %>
+        <div class="checkbox">
+          <%= f.label :show_identifier do %>
+              <%= f.check_box :show_identifier, checked: true %>
+              <%= Spree::Review.human_attribute_name(:show_identifier) %>
+          <% end %>
+        </div>
+    <% end %>
+
+
+    <div class="buttons">
+      <div class="pull-right">
+        <%= f.submit Spree.t(:submit_your_review), class: 'btn btn-primary' %>
+      </div>
+    </div>
+
+<% end %>

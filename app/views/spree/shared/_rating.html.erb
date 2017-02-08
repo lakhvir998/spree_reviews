@@ -1,0 +1,20 @@
+<% stars = @product.stars %>
+<% reviews_count = @product.reviews_count %>
+<div class="ratings">
+  <div class="rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    <span itemprop="ratingValue" content="<%= stars %>"></span>
+    <span itemprop="reviewCount" content="<%= reviews_count %>"></span>
+    <p class="ratings-stars">
+       <span title="<%= txt_stars(stars) %>">
+        <%= render 'spree/reviews/stars', stars: stars %>
+      </span>
+      <a onClick="$('a[href=\'#tab-review\']').trigger('click'); return false;" href="">
+        <span itemprop="reviewCount"><%= reviews_count %> reviews</span></a> /
+      <a onClick="$('a[href=\'#tab-review\']').trigger('click'); return false;" href="">Write a review</a></p>
+
+  </div>
+
+</div>
+<hr>
+
+
