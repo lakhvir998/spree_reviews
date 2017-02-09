@@ -20,12 +20,12 @@
           <% end %>
         </div>
 
-        <div class="checkbox">
-          <%= label_tag :require_login do %>
-              <%= preference_field_tag :require_login, Spree::Reviews::Config[:require_login], type: :boolean %>
-              <%= Spree.t(:require_login, scope: :spree_reviews) %>
-          <% end %>
-        </div>
+        <!--<div class="checkbox">-->
+          <%#= label_tag :require_login do %>
+              <%#= preference_field_tag :require_login, Spree::Reviews::Config[:require_login], type: :boolean %>
+              <%#= Spree.t(:require_login, scope: :spree_reviews) %>
+          <%# end %>
+        <!--</div>-->
 
         <div class="checkbox">
           <%= label_tag :track_locale do %>

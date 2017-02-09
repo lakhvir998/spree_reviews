@@ -3,9 +3,9 @@ class Spree::ReviewsAbility
 
   def initialize(user)
     review_ability_class = self.class
-    can :create, Spree::Review do
-      review_ability_class.allow_anonymous_reviews? || !user.email.blank?
-    end
+      can :create, Spree::Review do
+        review_ability_class.allow_anonymous_reviews? || !user.email.blank?
+      end
 
   end
 
