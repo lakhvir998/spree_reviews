@@ -9,7 +9,6 @@ class Spree::ReviewsController < Spree::StoreController
 
   def new
     @review = Spree::Review.new(product: @product)
-    #authorize! :create, @review
   end
 
   # save if all ok
@@ -22,7 +21,6 @@ class Spree::ReviewsController < Spree::StoreController
     @review.ip_address = request.remote_ip
     @review.locale = I18n.locale.to_s if Spree::Reviews::Config[:track_locale]
 
-    #authorize! :create, @review
     if @review.save
       flash[:notice] = Spree.t(:review_successfully_submitted)
       redirect_to spree.product_path(@product)
