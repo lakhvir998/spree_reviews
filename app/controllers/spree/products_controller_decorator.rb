@@ -1,5 +1,4 @@
 Spree::ProductsController.class_eval do
-
   helper Spree::ReviewsHelper
 
   reviews_fields = [:avg_rating, :reviews_count]
@@ -8,5 +7,4 @@ Spree::ProductsController.class_eval do
   Spree::Api::ApiHelpers.class_eval do
     reviews_fields.each { |attrib| class_variable_set(:@@product_attributes, class_variable_get(:@@product_attributes).push(attrib)) }
   end
-
 end

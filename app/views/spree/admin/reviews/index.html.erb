@@ -44,7 +44,6 @@
       <tr>
         <th><%= sort_link @search, :product, Spree.t(:product) %></th>
         <th><%= sort_link @search, :rating, Spree::Review.human_attribute_name(:rating) %></th>
-        <th><%= Spree.t(:feedback) %></th>
         <th><%= sort_link @search, :user, Spree::Review.human_attribute_name(:user) %></th>
         <th><%= sort_link @search, :ip_address, Spree::Review.human_attribute_name(:ip_address) %></th>
         <th><%= sort_link @search, :created_at, Spree::Review.human_attribute_name(:created_at) %></th>
